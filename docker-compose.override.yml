@@ -1,0 +1,11 @@
+services:
+  api-node:
+    build:
+      context: .
+      target: build 
+      
+
+    command: pnpm --filter api run dev
+    
+    volumes:
+      - ./apps/api-node/src:/app/apps/api-node/src

@@ -1,0 +1,73 @@
+# =========================================
+# Dependencies & Package Managers
+# =========================================
+node_modules
+.pnp/
+.pnpm-store
+
+# =========================================
+# Build Outputs & Compiled Files                                                                    
+# =========================================
+# Standard build output directories
+dist/
+build/
+out/
+
+# Monorepo specific build outputs and Vite cache for your apps
+apps/**/.vite/
+apps/**/dist/
+
+# =========================================
+# Testing & Code Coverage
+# =========================================
+coverage/
+converage/      # (Kept your spelling, though likely a typo for coverage/)
+jest-cache/     # Cache for Jest test runner to speed up subsequent runs
+
+# =========================================
+# Logs & Debug Files
+# =========================================
+# Package manager crash reports and logs
+npm-debug.log*
+yarn-debug.log* # (Fixed typo from yarn-degub.log)
+yarn-error.log*
+pnpm-debug.log*
+
+# Catch-all for any other log files
+*.log
+
+# =========================================
+# Environment Variables & Secrets
+# =========================================
+# Ignore all actual environment files to prevent leaking API keys/secrets
+.env
+.env.*
+# EXCEPT the example file, which should be committed so the team knows what keys are needed
+!.env.example
+
+# =========================================
+# TypeScript
+# =========================================
+# Caches created by TS incremental builds (speeds up subsequent compilations)
+*.tsbuildinfo
+
+# =========================================
+# IDEs & Editor Configuration
+# =========================================
+.idea/          # WebStorm/IntelliJ config folder
+.vscode/        # VS Code config folder
+# Let VS Code extensions file be committed so the team shares the same recommended plugins
+!.vscode/extensions.json
+
+# =========================================
+# Temporary & Swap Files
+# =========================================
+*.tmp
+*.swp           # Vim/Editor swap files created when a file is open
+
+# =========================================
+# Operating System Generated Files
+# =========================================
+.DS_Store       # macOS custom folder attributes
+Thumbs.db       # Windows thumbnail cache (Standardized from Thumbs.debug)
+Thumbs.debug
