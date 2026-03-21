@@ -5,13 +5,14 @@ services:
   api-node:
     build:
       context: .
-      # Stop at the 'build' stage so we have pnpm and tsx
       target: build 
+      
+    working_dir: /app/apps/api-node
     
-    command: pnpm --filter api run dev
+    # The Fix: Use sh -c and npx to bypass pnpm script confusion entirely
+    command: sh -c "npx tsx watch src/server.ts"
     
     volumes:
-      # Sync only the source code to avoid overwriting Linux node_modules
       - ./apps/api-node/src:/app/apps/api-node/src
 
 
@@ -21,17 +22,14 @@ services:
   web:
     build:
       context: .
-      # 1. Stop at the 'build' stage (Node) so it doesn't switch to Nginx!
       target: build 
       
-    # 2. The Port Magic: Force Vite to run on Port 80 instead of 5173. 
-    # This tricks your Nginx Gateway into thinking it's talking to the production build!
-    command: pnpm --filter web exec vite --port 80 --host 0.0.0.0
+    working_dir: /app/apps/web
+    
+    # The Fix: Use sh -c and npx to bypass the pnpm workspace trap completely
+    command: sh -c "npx vite --host 0.0.0.0 --port 80"
     
     volumes:
-      # 3. Granular sync. We sync only the files Vite needs to recompile.
-      # If we synced the whole folder, Windows would overwrite the container's 
-      # node_modules and break Vite's C++ binaries!
       - ./apps/web/src:/app/apps/web/src
       - ./apps/web/public:/app/apps/web/public
       - ./apps/web/index.html:/app/apps/web/index.html

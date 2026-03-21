@@ -1,9 +1,54 @@
 @import "tailwindcss";
 
 :root {
+  /* ==========================================
+     1. BRAND COLORS (From UI Kit)
+     ========================================== */
+  --color-brand-primary: #2A7938;       /* Trust Green */
+  --color-brand-primary-hover: #22612D; /* Trust Green (Hover State) */
+  --color-brand-secondary: #F5A623;     /* Warm Amber */
+  --color-brand-surface: #E8F5E9;       /* Light green background for selected/active states */
 
+  /* ==========================================
+     2. SEMANTIC & STATUS COLORS
+     ========================================== */
+  --color-status-success: #2A7938;      /* Maps to Trust Green */
+  --color-status-error: #DC2626;        /* Destructive Red */
+  --color-status-warning: #F5A623;      /* Maps to Warm Amber */
+  --color-status-info: #3B82F6;         /* Standard Blue for future info alerts */
 
+  /* ==========================================
+     3. TYPOGRAPHY
+     ========================================== */
+  --color-text-heading: #111827;        /* Extra dark gray for strong contrast on headings */
+  --color-text-body: #4B5563;           /* Softer gray for highly readable paragraph text */
+  --color-text-muted: #6B7280;          /* For metadata, timestamps, and secondary info */
+  --color-text-disabled: #9CA3AF;       /* Disabled button/input text */
 
+  /* ==========================================
+     4. BACKGROUNDS & SURFACES
+     ========================================== */
+  --color-bg-app: #F8F9FA;              /* System Off-White from the UI Kit */
+  --color-bg-card: #FFFFFF;             /* Pure white for Zomato-style cards */
+  --color-bg-disabled: #E5E7EB;         /* Gray for disabled buttons/inputs */
+  
+  /* ==========================================
+     5. BORDERS
+     ========================================== */
+  --color-border-subtle: #E5E7EB;       /* Light border for cards and inactive inputs */
+  --color-border-focus: #2A7938;        /* Trust Green for focused form states */
+
+  /* ==========================================
+     6. GENERIC GRAY SCALE (For Future Expansion)
+     ========================================== */
+  --color-gray-50: #F9FAFB;
+  --color-gray-100: #F3F4F6;
+  --color-gray-200: #E5E7EB;
+  --color-gray-300: #D1D5DB;
+  --color-gray-400: #9CA3AF;
+  --color-gray-500: #6B7280;
+  --color-gray-600: #4B5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1F2937;
+  --color-gray-900: #111827;
 }
-
-
