@@ -43,5 +43,11 @@ export default defineConfig({
         }
       }
     }]
+  },
+  resolve:{
+    alias:{
+      "@stories": path.resolve(__dirname,"./src/stories"),
+      "@components": path.resolve(__dirname,"./src/components")
+    }
   }
 });

@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
-:root {
+@theme {
   /* ==========================================
      1. BRAND COLORS (From UI Kit)
      ========================================== */
-  --color-brand-primary: #2A7938;       /* Trust Green */
-  --color-brand-primary-hover: #22612D; /* Trust Green (Hover State) */
-  --color-brand-secondary: #F5A623;     /* Warm Amber */
-  --color-brand-surface: #E8F5E9;       /* Light green background for selected/active states */
+  --color-brand-primary: '#1A7F37';       /* Trust Green */
+  --color-brand-primary-hover: #14612A; /* Trust Green (Hover State) */
+  --color-brand-secondary: #FBBF24;     /* Warm Amber */
+  --color-brand-surface: #DC2626;       /* Light green background for selected/active states */
 
   /* ==========================================
      2. SEMANTIC & STATUS COLORS
@@ -51,4 +51,8 @@
   --color-gray-700: #374151;
   --color-gray-800: #1F2937;
   --color-gray-900: #111827;
+}
+
+body{
+   font-family: sans-serif;
 }

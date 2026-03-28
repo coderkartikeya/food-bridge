@@ -1,12 +1,18 @@
 
 import './App.css'
+import Button from './stories/atoms/button/Button'
+import Text from './stories/atoms/text/Text'
 
 function App() {
 
   return (
     <>
-      <div className='bg-black'>
-        hello
+      <div >
+        <Button>
+          <Text>
+            Hello
+          </Text>
+        </Button>
       </div>
     </>
   )

@@ -11,7 +11,7 @@ type FontWeight = "bold" | "regular" | "semibold";
  * childrne is for rendering children inside it and className for custom classes .
  */
 type TextProps = {
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
   fontSize?: FontSize;
   fontWeight?: FontWeight;
