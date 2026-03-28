@@ -1,11 +1,36 @@
 services:
+  # ==========================================
+  # NODE API GATEWAY (Backend)
+  # ==========================================
   api-node:
     build:
       context: .
       target: build 
       
-
-    command: pnpm --filter api run dev
+    working_dir: /app/apps/api-node
+    
+    # The Fix: Use sh -c and npx to bypass pnpm script confusion entirely
+    command: sh -c "npx tsx watch src/server.ts"
     
     volumes:
       - ./apps/api-node/src:/app/apps/api-node/src
+
+
+  # ==========================================
+  # REACT FRONTEND (Web)
+  # ==========================================
+  web:
+    build:
+      context: .
+      target: build 
+      
+    working_dir: /app/apps/web
+    
+    # The Fix: Use sh -c and npx to bypass the pnpm workspace trap completely
+    command: sh -c "npx vite --host 0.0.0.0 --port 80"
+    
+    volumes:
+      - ./apps/web/src:/app/apps/web/src
+      - ./apps/web/public:/app/apps/web/public
+      - ./apps/web/index.html:/app/apps/web/index.html
+      - ./apps/web/vite.config.ts:/app/apps/web/vite.config.ts
