@@ -43,13 +43,11 @@ app.get("/api/", (req: Request, res: Response) => {
   res.json({ message: "Gateway is secure and routing traffic!" });
 });
 
-// Added try/catch and NextFunction to handle Axios errors safely
 app.get("/api/products", async (req: Request, res: Response, next: NextFunction) => {
   try {
     const response = await axios.get("http://api-spring:8080/products");
     res.json(response.data);
   } catch (error) {
-    // This forwards the error to the middleware at the bottom
     next(error); 
   }
 });

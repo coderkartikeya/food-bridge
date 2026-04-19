@@ -1,21 +1,6 @@
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes/AppRoutes";
 
-import './App.css'
-import Button from './stories/atoms/button/Button'
-import Text from './stories/atoms/text/Text'
-
-function App() {
-
-  return (
-    <>
-      <div >
-        <Button>
-          <Text>
-            Hello
-          </Text>
-        </Button>
-      </div>
-    </>
-  )
+export default function App() {
+  return <RouterProvider router={router} />;
 }
-
-export default App
