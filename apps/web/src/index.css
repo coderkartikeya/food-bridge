@@ -1,45 +1,49 @@
 @import "tailwindcss";
 
+/* * If you are moving all your colors here, you can safely remove the 
+ * @config "../tailwind.config.ts"; line to speed up Vite's build process!
+ */
+
 @theme {
   /* ==========================================
-     1. BRAND COLORS (From UI Kit)
+     1. BRAND COLORS
      ========================================== */
-  --color-brand-primary: '#1A7F37';       /* Trust Green */
-  --color-brand-primary-hover: #14612A; /* Trust Green (Hover State) */
-  --color-brand-secondary: #FBBF24;     /* Warm Amber */
-  --color-brand-surface: #DC2626;       /* Light green background for selected/active states */
+  --color-brand-primary: #1A7F37;       /* <-- Fixed: Removed quotes */
+  --color-brand-primary-hover: #14612A;
+  --color-brand-secondary: #FBBF24;
+  --color-brand-surface: #DC2626;
 
   /* ==========================================
      2. SEMANTIC & STATUS COLORS
      ========================================== */
-  --color-status-success: #2A7938;      /* Maps to Trust Green */
-  --color-status-error: #DC2626;        /* Destructive Red */
-  --color-status-warning: #F5A623;      /* Maps to Warm Amber */
-  --color-status-info: #3B82F6;         /* Standard Blue for future info alerts */
+  --color-status-success: #2A7938;
+  --color-status-error: #DC2626;
+  --color-status-warning: #F5A623;
+  --color-status-info: #3B82F6;
 
   /* ==========================================
      3. TYPOGRAPHY
      ========================================== */
-  --color-text-heading: #111827;        /* Extra dark gray for strong contrast on headings */
-  --color-text-body: #4B5563;           /* Softer gray for highly readable paragraph text */
-  --color-text-muted: #6B7280;          /* For metadata, timestamps, and secondary info */
-  --color-text-disabled: #9CA3AF;       /* Disabled button/input text */
+  --color-text-heading: #111827;
+  --color-text-body: #4B5563;
+  --color-text-muted: #6B7280;
+  --color-text-disabled: #9CA3AF;
 
   /* ==========================================
      4. BACKGROUNDS & SURFACES
      ========================================== */
-  --color-bg-app: #F8F9FA;              /* System Off-White from the UI Kit */
-  --color-bg-card: #FFFFFF;             /* Pure white for Zomato-style cards */
-  --color-bg-disabled: #E5E7EB;         /* Gray for disabled buttons/inputs */
+  --color-bg-app: #F8F9FA;
+  --color-bg-card: #FFFFFF;
+  --color-bg-disabled: #E5E7EB;
   
   /* ==========================================
      5. BORDERS
      ========================================== */
-  --color-border-subtle: #E5E7EB;       /* Light border for cards and inactive inputs */
-  --color-border-focus: #2A7938;        /* Trust Green for focused form states */
+  --color-border-subtle: #E5E7EB;
+  --color-border-focus: #2A7938;
 
   /* ==========================================
-     6. GENERIC GRAY SCALE (For Future Expansion)
+     6. GENERIC GRAY SCALE
      ========================================== */
   --color-gray-50: #F9FAFB;
   --color-gray-100: #F3F4F6;
@@ -53,6 +57,7 @@
   --color-gray-900: #111827;
 }
 
-body{
+body {
    font-family: sans-serif;
+   background-color: var(--color-bg-app); 
 }
