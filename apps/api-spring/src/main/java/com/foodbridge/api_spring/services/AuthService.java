@@ -1,8 +1,9 @@
 package com.foodbridge.api_spring.services;
-import com.foodbridge.api_spring.dto.AuthResponse;
+
 import com.foodbridge.api_spring.model.dto.request.UserCreateRequestDTO;
 import com.foodbridge.api_spring.model.dto.request.UserLoginRequestDTO;
 import com.foodbridge.api_spring.model.dto.request.UserUpdateRequestDTO;
+import com.foodbridge.api_spring.model.dto.response.AuthResponse;
 import com.foodbridge.api_spring.model.dto.response.GetUserDTO;
 import com.foodbridge.api_spring.model.dto.response.UserUpdateResponse;
 import com.foodbridge.api_spring.model.entity.User;

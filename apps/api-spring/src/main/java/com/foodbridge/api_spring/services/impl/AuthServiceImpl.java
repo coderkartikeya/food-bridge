@@ -1,10 +1,11 @@
 package com.foodbridge.api_spring.services.impl;
 
-import com.foodbridge.api_spring.dto.AuthResponse;
+
 import com.foodbridge.api_spring.mapper.UserMapper;
 import com.foodbridge.api_spring.model.dto.request.UserCreateRequestDTO;
 import com.foodbridge.api_spring.model.dto.request.UserLoginRequestDTO;
 import com.foodbridge.api_spring.model.dto.request.UserUpdateRequestDTO;
+import com.foodbridge.api_spring.model.dto.response.AuthResponse;
 import com.foodbridge.api_spring.model.dto.response.GetUserDTO;
 import com.foodbridge.api_spring.model.dto.response.UserUpdateResponse;
 import com.foodbridge.api_spring.model.entity.RefreshToken;
@@ -64,7 +65,14 @@ public class AuthServiceImpl implements AuthService {
                 .expiration(604800L)
                 .build();
         redisRepository.save(redisRefreshToken);
-        return new AuthResponse(accessToken,refreshToken);
+        return AuthResponse.builder()
+                .fullName(user.getName())
+                .role(user.getRoles())
+                .accessToken(accessToken)
+                .refreshToken(refreshToken)
+                .lan(user.getLongitude())
+                .lat(user.getLatitude())
+                .build();
     }
 
     @Override
@@ -79,7 +87,10 @@ public class AuthServiceImpl implements AuthService {
                     .orElseThrow(()-> new RuntimeException("user not found Exception"));
             if(jwtService.isTokenValid(refreshToken,user)){
                 String newAccessToken = jwtService.generateAccessToken(user);
-                return new AuthResponse(newAccessToken,refreshToken);
+                return AuthResponse.builder()
+                        .accessToken(newAccessToken)
+                        .refreshToken(refreshToken)
+                        .build();
             }
         }
         throw new RuntimeException("Invalid Refresh Token");
@@ -141,7 +152,14 @@ public class AuthServiceImpl implements AuthService {
                 .build();
         redisRepository.save(redisToken);
 
-        return new AuthResponse(accessToken, refreshToken);
+        return  AuthResponse.builder()
+                .fullName(user.getName())
+                .role(user.getRoles())
+                .accessToken(accessToken)
+                .refreshToken(refreshToken)
+                .lan(user.getLongitude())
+                .lat(user.getLatitude())
+                .build();
     }
 
 }
