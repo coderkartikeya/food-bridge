@@ -12,9 +12,13 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import { withSuspense } from "../components/Loader";
 import MainLayout from "../layouts/MainLayout";
 import ErrorPage from "../pages/Error/Error";
+import ProtectedRoute from "@components/ProtectedRoute";
+import DashboardLayout from "../layouts/DashboardLayout";
 
 const HomePage = lazy(() => import("../pages/Home/HomePage"));
 const LoginPage = lazy(() => import("../pages/Login/Login"));
+const DashboardPage = lazy(() => import("../pages/dashboard/Dashboard"));
+const SignupPage = lazy(() => import("../pages/Signup/Signup"));
 
 export const router = createBrowserRouter([
   {
@@ -28,9 +32,50 @@ export const router = createBrowserRouter([
       }
     ],
   },
+  
+  
   {
     path: "/login",
     element: withSuspense(LoginPage),
+  },
+  {
+    path: "/signup",
+    element: withSuspense(SignupPage),
+  },
+  {
+    element: <ProtectedRoute />, 
+    children: [
+      {
+        path: "/dashboard",
+        element: <DashboardLayout />, 
+        children: [
+          {
+            index: true,
+            element: withSuspense(DashboardPage),
+          },
+          {
+            path: "history",
+            element: withSuspense(lazy(() => import("../pages/dashboard/History")))
+          },
+          {
+            path: "deliveries",
+            element: withSuspense(lazy(() => import("../pages/dashboard/ActiveDeliveries")))
+          },
+          {
+            path: "schedule",
+            element: withSuspense(lazy(() => import("../pages/dashboard/Schedule")))
+          },
+          {
+            path: "messages",
+            element: withSuspense(lazy(() => import("../pages/dashboard/Messages")))
+          },
+          {
+            path: "list-food",
+            element: withSuspense(lazy(() => import("../pages/dashboard/ListFood")))
+          }
+        ]
+      }
+    ]
   },
   {
     path: "/404",

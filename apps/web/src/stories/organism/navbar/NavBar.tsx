@@ -11,12 +11,9 @@ import {
   Input, 
   Icon
 } from "@components/export/index"; 
+import { type User } from "@/types/global";
 
-interface User {
-  name: string;
-  avatar?: string;
-  role: string;
-}
+
 
 interface NavbarProps {
   user?: User;

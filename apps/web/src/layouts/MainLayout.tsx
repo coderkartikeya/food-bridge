@@ -5,26 +5,24 @@
  * between Guest flows (Login/Signup) and Authenticated flows (Profile/Dashboard).
  * In production, local state should be replaced with a global AuthContext.
  */
-import { useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { NavBar, Footer } from "@components/export/index";
-
-interface User {
-  name: string;
-  role: string;
-  avatar?: string;
-}
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../store/slices/authSlice";
+import { type RootState } from "../store";
 
 const MainLayout = () => {
   const navigate = useNavigate();
-  const [user, setUser] = useState<User | null>(null);
+  const dispatch = useDispatch();
+  
+  const user = useSelector((state: RootState) => state.auth.user);
 
   const handleLoginNavigation = () => {
     navigate("/login");
   };
 
   const handleLogout = () => {
-    setUser(null);
+    dispatch(logout());
     navigate("/");
   };
 
@@ -37,7 +35,7 @@ const MainLayout = () => {
       />
       
       <main className="flex-grow">
-        <Outlet context={{ user, setUser }} /> 
+        <Outlet /> 
       </main>
 
       <Footer />

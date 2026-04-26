@@ -29,22 +29,21 @@ export const LoggedOut: Story = {
   },
 };
 
-// 2. Authenticated User (Logged In)
-export const LoggedIn: Story = {
-  args: {
-    user: {
-      name: "Kartikeya Vats",
-      role: "Restaurant Partner",
-      avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=100&auto=format&fit=crop",
-    },
-  },
-};
+// export const LoggedIn: Story = {
+//   args: {
+//     user: {
+//       name: "Kartikeya Vats",
+//       role: "NGO",
+//       avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=100&auto=format&fit=crop",
+//     },
+//   },
+// };
 
-export const LoggedInNoAvatar: Story = {
-  args: {
-    user: {
-      name: "John Doe",
-      role: "Volunteer",
-    },
-  },
-};
+// export const LoggedInNoAvatar: Story = {
+//   args: {
+//     user: {
+//       name: "John Doe",
+//       role: "NGO",
+//     },
+//   },
+// };

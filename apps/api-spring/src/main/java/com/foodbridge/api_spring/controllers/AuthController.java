@@ -1,8 +1,9 @@
 package com.foodbridge.api_spring.controllers;
 
-import com.foodbridge.api_spring.dto.AuthResponse;
+
 import com.foodbridge.api_spring.model.dto.request.UserLoginRequestDTO;
 import com.foodbridge.api_spring.model.dto.response.ApiResponse;
+import com.foodbridge.api_spring.model.dto.response.AuthResponse;
 import com.foodbridge.api_spring.services.AuthService;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
@@ -53,7 +54,10 @@ public class AuthController {
             HttpServletRequest request
     ) {
         if (refreshToken == null) {
-            return ResponseEntity.status(401).body(new ApiResponse<>(new AuthResponse(null, null)
+            return ResponseEntity.status(401).body(new ApiResponse<>(AuthResponse.builder()
+                    .accessToken(null)
+                            .refreshToken(null)
+                    .build()
                     , "",
                     request.getRequestURI()
             ));
