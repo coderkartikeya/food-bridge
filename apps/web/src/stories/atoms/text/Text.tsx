@@ -2,7 +2,7 @@ import { type ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 import clsx from "clsx";
 
-type FontSize = "sm" | "lg" | "xl" | "xs";
+type FontSize = "sm" | "md" | "lg" | "xl" | "xs";
 type FontWeight = "bold" | "regular" | "semibold";
 
 /**
@@ -21,6 +21,7 @@ type TextProps = {
 const sizeMapper: Record<FontSize, string> = {
   xs: "text-xs",
   sm: "text-sm",
+  md: "text-base",
   lg: "text-lg",
   xl: "text-xl",
 };

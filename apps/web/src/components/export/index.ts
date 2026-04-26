@@ -13,6 +13,7 @@ export { default as Dropdown } from "@stories/molecule/dropdown/Dropdown";
 export { default as Badge } from "@stories/atoms/badge/Badge";
 export { default as Card } from "@stories/molecule/card/Card";
 export { Icon } from "@stories/atoms/Icon/Icons";
+export {type IconName} from "@stories/atoms/Icon/icon-mapper";
 
 export {default as NavBar} from "@stories/organism/navbar/NavBar"
 export {default as Footer} from "@stories/organism/footer/Footer"
